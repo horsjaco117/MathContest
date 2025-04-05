@@ -210,7 +210,7 @@ Partial Class MathContest
         ' 
         ' NameTextBox
         ' 
-        NameTextBox.Location = New Point(30, 106)
+        NameTextBox.Location = New Point(30, 95)
         NameTextBox.Name = "NameTextBox"
         NameTextBox.Size = New Size(150, 31)
         NameTextBox.TabIndex = 17
