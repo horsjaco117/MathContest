@@ -32,6 +32,35 @@ Public Class MathContest
         DivideRadioButton.Enabled = False
     End Sub
 
+    Private Sub ValidateInputs()
+        Dim nameValid As Boolean = Not String.IsNullOrWhiteSpace(NameTextBox.Text)
+        Dim ageValid As Boolean = Integer.TryParse(AgeTextBox.Text, Nothing)
+        Dim gradeValid As Boolean = Integer.TryParse(GradeTextBox.Text, Nothing)
+
+        Dim allValid As Boolean = nameValid And ageValid And gradeValid
+
+        SubmitButton.Enabled = allValid
+        SummaryButton.Enabled = allValid
+        AddRadioButton.Enabled = allValid
+        SubtractRadioButton.Enabled = allValid
+        MultiplyRadioButton.Enabled = allValid
+        DivideRadioButton.Enabled = allValid
+
+    End Sub
+
+    Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
+        ValidateInputs()
+    End Sub
+
+    Private Sub AgeTextBox_TextChanged(sender As Object, e As EventArgs) Handles AgeTextBox.TextChanged
+        ValidateInputs()
+    End Sub
+
+    Private Sub GradeTextBox_TextChanged(sender As Object, e As EventArgs) Handles GradeTextBox.TextChanged
+        ValidateInputs()
+    End Sub
+
+
 
     Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         NameTextBox.Focus()
