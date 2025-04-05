@@ -8,7 +8,7 @@ Option Explicit On
 Option Strict On
 
 Public Class MathContest
-    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles SubtractRadioButton.CheckedChanged
 
     End Sub
 End Class

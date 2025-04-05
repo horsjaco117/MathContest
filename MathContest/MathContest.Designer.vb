@@ -22,218 +22,290 @@ Partial Class MathContest
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        RadioButton1 = New RadioButton()
-        RadioButton2 = New RadioButton()
-        RadioButton3 = New RadioButton()
-        RadioButton4 = New RadioButton()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
-        Label4 = New Label()
-        Label5 = New Label()
-        Label6 = New Label()
-        Label7 = New Label()
-        Label8 = New Label()
-        Button1 = New Button()
-        Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
+        AddRadioButton = New RadioButton()
+        SubtractRadioButton = New RadioButton()
+        MultiplyRadioButton = New RadioButton()
+        DivideRadioButton = New RadioButton()
+        StudentInfoLabel = New Label()
+        NameLabel = New Label()
+        CurrentMathProblemLabel = New Label()
+        FirstNumberLabel = New Label()
+        SecondNumberLabel = New Label()
+        StudentAnswerLabel = New Label()
+        AgeLabel = New Label()
+        GradeLabel = New Label()
+        SubmitButton = New Button()
+        ClearButton = New Button()
+        SummaryButton = New Button()
+        ExitButton = New Button()
+        MathProblemTypeLabel = New Label()
+        NameTextBox = New TextBox()
+        AgeTextBox = New TextBox()
+        GradeTextBox = New TextBox()
+        FirstNumberTextBox = New TextBox()
+        SecondNumberTextBox = New TextBox()
+        StudentAnswerTextBox = New TextBox()
         SuspendLayout()
         ' 
-        ' RadioButton1
+        ' AddRadioButton
         ' 
-        RadioButton1.AutoSize = True
-        RadioButton1.Location = New Point(293, 238)
-        RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(146, 29)
-        RadioButton1.TabIndex = 0
-        RadioButton1.TabStop = True
-        RadioButton1.Text = "RadioButton1"
-        RadioButton1.UseVisualStyleBackColor = True
+        AddRadioButton.AutoSize = True
+        AddRadioButton.Location = New Point(293, 238)
+        AddRadioButton.Name = "AddRadioButton"
+        AddRadioButton.Size = New Size(71, 29)
+        AddRadioButton.TabIndex = 0
+        AddRadioButton.TabStop = True
+        AddRadioButton.Text = "Add"
+        AddRadioButton.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton2
+        ' SubtractRadioButton
         ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(293, 273)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(146, 29)
-        RadioButton2.TabIndex = 1
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "RadioButton2"
-        RadioButton2.UseVisualStyleBackColor = True
+        SubtractRadioButton.AutoSize = True
+        SubtractRadioButton.Location = New Point(293, 273)
+        SubtractRadioButton.Name = "SubtractRadioButton"
+        SubtractRadioButton.Size = New Size(103, 29)
+        SubtractRadioButton.TabIndex = 1
+        SubtractRadioButton.TabStop = True
+        SubtractRadioButton.Text = "Subtract"
+        SubtractRadioButton.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton3
+        ' MultiplyRadioButton
         ' 
-        RadioButton3.AutoSize = True
-        RadioButton3.Location = New Point(293, 308)
-        RadioButton3.Name = "RadioButton3"
-        RadioButton3.Size = New Size(146, 29)
-        RadioButton3.TabIndex = 2
-        RadioButton3.TabStop = True
-        RadioButton3.Text = "RadioButton3"
-        RadioButton3.UseVisualStyleBackColor = True
+        MultiplyRadioButton.AutoSize = True
+        MultiplyRadioButton.Location = New Point(293, 308)
+        MultiplyRadioButton.Name = "MultiplyRadioButton"
+        MultiplyRadioButton.Size = New Size(101, 29)
+        MultiplyRadioButton.TabIndex = 2
+        MultiplyRadioButton.TabStop = True
+        MultiplyRadioButton.Text = "Multiply"
+        MultiplyRadioButton.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton4
+        ' DivideRadioButton
         ' 
-        RadioButton4.AutoSize = True
-        RadioButton4.Location = New Point(293, 343)
-        RadioButton4.Name = "RadioButton4"
-        RadioButton4.Size = New Size(146, 29)
-        RadioButton4.TabIndex = 3
-        RadioButton4.TabStop = True
-        RadioButton4.Text = "RadioButton4"
-        RadioButton4.UseVisualStyleBackColor = True
+        DivideRadioButton.AutoSize = True
+        DivideRadioButton.Location = New Point(293, 343)
+        DivideRadioButton.Name = "DivideRadioButton"
+        DivideRadioButton.Size = New Size(87, 29)
+        DivideRadioButton.TabIndex = 3
+        DivideRadioButton.TabStop = True
+        DivideRadioButton.Text = "Divide"
+        DivideRadioButton.UseVisualStyleBackColor = True
         ' 
-        ' Label1
+        ' StudentInfoLabel
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(30, 56)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(63, 25)
-        Label1.TabIndex = 4
-        Label1.Text = "Label1"
+        StudentInfoLabel.AutoSize = True
+        StudentInfoLabel.Location = New Point(30, 9)
+        StudentInfoLabel.Name = "StudentInfoLabel"
+        StudentInfoLabel.Size = New Size(172, 25)
+        StudentInfoLabel.TabIndex = 4
+        StudentInfoLabel.Text = "Student Information"
         ' 
-        ' Label2
+        ' NameLabel
         ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(30, 9)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(63, 25)
-        Label2.TabIndex = 5
-        Label2.Text = "Label2"
+        NameLabel.AutoSize = True
+        NameLabel.Location = New Point(30, 67)
+        NameLabel.Name = "NameLabel"
+        NameLabel.Size = New Size(59, 25)
+        NameLabel.TabIndex = 5
+        NameLabel.Text = "Name"
         ' 
-        ' Label3
+        ' CurrentMathProblemLabel
         ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(30, 113)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(63, 25)
-        Label3.TabIndex = 6
-        Label3.Text = "Label3"
+        CurrentMathProblemLabel.AutoSize = True
+        CurrentMathProblemLabel.Location = New Point(30, 273)
+        CurrentMathProblemLabel.Name = "CurrentMathProblemLabel"
+        CurrentMathProblemLabel.Size = New Size(188, 25)
+        CurrentMathProblemLabel.TabIndex = 6
+        CurrentMathProblemLabel.Text = "Current Math Problem"
         ' 
-        ' Label4
+        ' FirstNumberLabel
         ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(30, 182)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(63, 25)
-        Label4.TabIndex = 7
-        Label4.Text = "Label4"
+        FirstNumberLabel.AutoSize = True
+        FirstNumberLabel.Location = New Point(30, 343)
+        FirstNumberLabel.Name = "FirstNumberLabel"
+        FirstNumberLabel.Size = New Size(106, 25)
+        FirstNumberLabel.TabIndex = 7
+        FirstNumberLabel.Text = "1st Number"
         ' 
-        ' Label5
+        ' SecondNumberLabel
         ' 
-        Label5.AutoSize = True
-        Label5.Location = New Point(30, 251)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(63, 25)
-        Label5.TabIndex = 8
-        Label5.Text = "Label5"
+        SecondNumberLabel.AutoSize = True
+        SecondNumberLabel.Location = New Point(30, 417)
+        SecondNumberLabel.Name = "SecondNumberLabel"
+        SecondNumberLabel.Size = New Size(113, 25)
+        SecondNumberLabel.TabIndex = 8
+        SecondNumberLabel.Text = "2nd Number"
         ' 
-        ' Label6
+        ' StudentAnswerLabel
         ' 
-        Label6.AutoSize = True
-        Label6.Location = New Point(30, 326)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(63, 25)
-        Label6.TabIndex = 9
-        Label6.Text = "Label6"
+        StudentAnswerLabel.AutoSize = True
+        StudentAnswerLabel.Location = New Point(30, 478)
+        StudentAnswerLabel.Name = "StudentAnswerLabel"
+        StudentAnswerLabel.Size = New Size(136, 25)
+        StudentAnswerLabel.TabIndex = 9
+        StudentAnswerLabel.Text = "Student Answer"
         ' 
-        ' Label7
+        ' AgeLabel
         ' 
-        Label7.AutoSize = True
-        Label7.Location = New Point(293, 82)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(63, 25)
-        Label7.TabIndex = 10
-        Label7.Text = "Label7"
+        AgeLabel.AutoSize = True
+        AgeLabel.Location = New Point(228, 67)
+        AgeLabel.Name = "AgeLabel"
+        AgeLabel.Size = New Size(44, 25)
+        AgeLabel.TabIndex = 10
+        AgeLabel.Text = "Age"
         ' 
-        ' Label8
+        ' GradeLabel
         ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(401, 82)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(63, 25)
-        Label8.TabIndex = 11
-        Label8.Text = "Label8"
+        GradeLabel.AutoSize = True
+        GradeLabel.Location = New Point(390, 67)
+        GradeLabel.Name = "GradeLabel"
+        GradeLabel.Size = New Size(59, 25)
+        GradeLabel.TabIndex = 11
+        GradeLabel.Text = "Grade"
         ' 
-        ' Button1
+        ' SubmitButton
         ' 
-        Button1.Location = New Point(618, 82)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(112, 34)
-        Button1.TabIndex = 12
-        Button1.Text = "Button1"
-        Button1.UseVisualStyleBackColor = True
+        SubmitButton.Location = New Point(618, 82)
+        SubmitButton.Name = "SubmitButton"
+        SubmitButton.Size = New Size(112, 34)
+        SubmitButton.TabIndex = 12
+        SubmitButton.Text = "Submit"
+        SubmitButton.UseVisualStyleBackColor = True
         ' 
-        ' Button2
+        ' ClearButton
         ' 
-        Button2.Location = New Point(618, 158)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(112, 34)
-        Button2.TabIndex = 13
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
+        ClearButton.Location = New Point(618, 158)
+        ClearButton.Name = "ClearButton"
+        ClearButton.Size = New Size(112, 34)
+        ClearButton.TabIndex = 13
+        ClearButton.Text = "Clear"
+        ClearButton.UseVisualStyleBackColor = True
         ' 
-        ' Button3
+        ' SummaryButton
         ' 
-        Button3.Location = New Point(618, 233)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(112, 34)
-        Button3.TabIndex = 14
-        Button3.Text = "Button3"
-        Button3.UseVisualStyleBackColor = True
+        SummaryButton.Location = New Point(618, 233)
+        SummaryButton.Name = "SummaryButton"
+        SummaryButton.Size = New Size(112, 34)
+        SummaryButton.TabIndex = 14
+        SummaryButton.Text = "Summary"
+        SummaryButton.UseVisualStyleBackColor = True
         ' 
-        ' Button4
+        ' ExitButton
         ' 
-        Button4.Location = New Point(618, 303)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(112, 34)
-        Button4.TabIndex = 15
-        Button4.Text = "Button4"
-        Button4.UseVisualStyleBackColor = True
+        ExitButton.Location = New Point(618, 303)
+        ExitButton.Name = "ExitButton"
+        ExitButton.Size = New Size(112, 34)
+        ExitButton.TabIndex = 15
+        ExitButton.Text = "Exit"
+        ExitButton.UseVisualStyleBackColor = True
         ' 
-        ' Form1
+        ' MathProblemTypeLabel
         ' 
-        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
+        MathProblemTypeLabel.AutoSize = True
+        MathProblemTypeLabel.Location = New Point(293, 193)
+        MathProblemTypeLabel.Name = "MathProblemTypeLabel"
+        MathProblemTypeLabel.Size = New Size(167, 25)
+        MathProblemTypeLabel.TabIndex = 16
+        MathProblemTypeLabel.Text = "Math Problem Type"
+        ' 
+        ' NameTextBox
+        ' 
+        NameTextBox.Location = New Point(30, 106)
+        NameTextBox.Name = "NameTextBox"
+        NameTextBox.Size = New Size(150, 31)
+        NameTextBox.TabIndex = 17
+        ' 
+        ' AgeTextBox
+        ' 
+        AgeTextBox.Location = New Point(214, 106)
+        AgeTextBox.Name = "AgeTextBox"
+        AgeTextBox.Size = New Size(150, 31)
+        AgeTextBox.TabIndex = 18
+        ' 
+        ' GradeTextBox
+        ' 
+        GradeTextBox.Location = New Point(390, 106)
+        GradeTextBox.Name = "GradeTextBox"
+        GradeTextBox.Size = New Size(150, 31)
+        GradeTextBox.TabIndex = 19
+        ' 
+        ' FirstNumberTextBox
+        ' 
+        FirstNumberTextBox.Location = New Point(30, 383)
+        FirstNumberTextBox.Name = "FirstNumberTextBox"
+        FirstNumberTextBox.Size = New Size(150, 31)
+        FirstNumberTextBox.TabIndex = 20
+        ' 
+        ' SecondNumberTextBox
+        ' 
+        SecondNumberTextBox.Location = New Point(30, 445)
+        SecondNumberTextBox.Name = "SecondNumberTextBox"
+        SecondNumberTextBox.Size = New Size(150, 31)
+        SecondNumberTextBox.TabIndex = 21
+        ' 
+        ' StudentAnswerTextBox
+        ' 
+        StudentAnswerTextBox.Location = New Point(30, 506)
+        StudentAnswerTextBox.Name = "StudentAnswerTextBox"
+        StudentAnswerTextBox.Size = New Size(150, 31)
+        StudentAnswerTextBox.TabIndex = 22
+        ' 
+        ' MathContest
+        ' 
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
-        Controls.Add(Button4)
-        Controls.Add(Button3)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
-        Controls.Add(Label8)
-        Controls.Add(Label7)
-        Controls.Add(Label6)
-        Controls.Add(Label5)
-        Controls.Add(Label4)
-        Controls.Add(Label3)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Controls.Add(RadioButton4)
-        Controls.Add(RadioButton3)
-        Controls.Add(RadioButton2)
-        Controls.Add(RadioButton1)
-        Name = "Form1"
+        ClientSize = New Size(921, 575)
+        Controls.Add(StudentAnswerTextBox)
+        Controls.Add(SecondNumberTextBox)
+        Controls.Add(FirstNumberTextBox)
+        Controls.Add(GradeTextBox)
+        Controls.Add(AgeTextBox)
+        Controls.Add(NameTextBox)
+        Controls.Add(MathProblemTypeLabel)
+        Controls.Add(ExitButton)
+        Controls.Add(SummaryButton)
+        Controls.Add(ClearButton)
+        Controls.Add(SubmitButton)
+        Controls.Add(GradeLabel)
+        Controls.Add(AgeLabel)
+        Controls.Add(StudentAnswerLabel)
+        Controls.Add(SecondNumberLabel)
+        Controls.Add(FirstNumberLabel)
+        Controls.Add(CurrentMathProblemLabel)
+        Controls.Add(NameLabel)
+        Controls.Add(StudentInfoLabel)
+        Controls.Add(DivideRadioButton)
+        Controls.Add(MultiplyRadioButton)
+        Controls.Add(SubtractRadioButton)
+        Controls.Add(AddRadioButton)
+        Name = "MathContest"
         Text = "Form1"
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton4 As RadioButton
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents AddRadioButton As RadioButton
+    Friend WithEvents SubtractRadioButton As RadioButton
+    Friend WithEvents MultiplyRadioButton As RadioButton
+    Friend WithEvents DivideRadioButton As RadioButton
+    Friend WithEvents StudentInfoLabel As Label
+    Friend WithEvents NameLabel As Label
+    Friend WithEvents CurrentMathProblemLabel As Label
+    Friend WithEvents FirstNumberLabel As Label
+    Friend WithEvents SecondNumberLabel As Label
+    Friend WithEvents StudentAnswerLabel As Label
+    Friend WithEvents AgeLabel As Label
+    Friend WithEvents GradeLabel As Label
+    Friend WithEvents SubmitButton As Button
+    Friend WithEvents ClearButton As Button
+    Friend WithEvents SummaryButton As Button
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents MathProblemTypeLabel As Label
+    Friend WithEvents NameTextBox As TextBox
+    Friend WithEvents AgeTextBox As TextBox
+    Friend WithEvents GradeTextBox As TextBox
+    Friend WithEvents FirstNumberTextBox As TextBox
+    Friend WithEvents SecondNumberTextBox As TextBox
+    Friend WithEvents StudentAnswerTextBox As TextBox
 
 End Class
