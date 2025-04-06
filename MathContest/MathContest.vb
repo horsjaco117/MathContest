@@ -39,8 +39,9 @@ Public Class MathContest
         Dim nameValid As Boolean = Not String.IsNullOrWhiteSpace(NameTextBox.Text)
         Dim ageValid As Boolean = Integer.TryParse(AgeTextBox.Text, Nothing)
         Dim gradeValid As Boolean = Integer.TryParse(GradeTextBox.Text, Nothing)
+        Dim answerValid As Boolean = Integer.TryParse(StudentAnswerTextBox.Text, Nothing)
 
-        Dim allValid As Boolean = nameValid And ageValid And gradeValid
+        Dim allValid As Boolean = nameValid And ageValid And gradeValid And answerValid
 
         SubmitButton.Enabled = allValid
         SummaryButton.Enabled = allValid
@@ -63,6 +64,11 @@ Public Class MathContest
         ValidateInputs()
     End Sub
 
+    Private Sub StudentAnswerTextBox_TextChanged(sender As Object, e As EventArgs) Handles StudentAnswerTextBox.TextChanged
+        ValidateInputs()
+    End Sub
+
+
 
 
     Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -74,17 +80,22 @@ Public Class MathContest
         Me.Close()
     End Sub
 
-    Private Sub FirstNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FirstNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load, SubmitButton.Click
         Dim result As Integer = randomNumberBetween(1, 100)
         FirstNumberTextBox.Text = result.ToString()
 
     End Sub
 
-    Private Sub SecondNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SecondNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load, SubmitButton.Click
         Dim result As Integer = secondRandomNumberBetween(1, 100)
         SecondNumberTextBox.Text = result.ToString()
 
     End Sub
+
+    Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+        StudentAnswerTextBox.Clear()
+    End Sub
+
 
 
 
