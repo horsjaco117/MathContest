@@ -15,6 +15,8 @@ Imports System.CodeDom.Compiler
 '[x] Gray out stuff with information ingresado
 '[ ] Create code that does math stuff for everything
 '[ ] Fix the problem of not being able to select button option
+'[ ] Have correct answer shown when incorrect input is recieved
+'[ ]  Keep track of the right and wrong values
 Public Class MathContest
 
     Dim firstNumber As Integer
@@ -253,7 +255,7 @@ Public Class MathContest
                 AffirmCorrectAnswer()
                 Return True
             Else
-                MsgBox("Oops! That's not correct.")
+                MsgBox("Oops! That's not correct.The correct answer was " & correctAnswer)
             End If
         Else
             MsgBox("Please enter a valid number.")
@@ -280,6 +282,7 @@ Public Class MathContest
         Dim valid As Boolean = True
         Dim message As String
         Dim age As Integer
+        Dim grade As Integer
         If NameTextBox.Text = "" Then
             valid = False
             NameTextBox.Focus()
@@ -319,6 +322,10 @@ Public Class MathContest
             valid = False
             NameTextBox.Focus()
             message &= "Grade is required."
+        ElseIf grade < 1 Or age > 4 Then
+            valid = False
+            GradeTextBox.Focus()
+            message &= "Please enter a grade number between 1 through 4"
         End If
 
         If Not valid Then
