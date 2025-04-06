@@ -22,6 +22,7 @@ Partial Class MathContest
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         AddRadioButton = New RadioButton()
         SubtractRadioButton = New RadioButton()
         MultiplyRadioButton = New RadioButton()
@@ -46,6 +47,7 @@ Partial Class MathContest
         StudentInformationGroupBox = New GroupBox()
         ButtonClusterGroupBox = New GroupBox()
         MathProblemTypeGroupBox = New GroupBox()
+        ToolTip1 = New ToolTip(components)
         CurrentMathProblemGroupBox.SuspendLayout()
         StudentInformationGroupBox.SuspendLayout()
         ButtonClusterGroupBox.SuspendLayout()
@@ -61,6 +63,7 @@ Partial Class MathContest
         AddRadioButton.TabIndex = 4
         AddRadioButton.TabStop = True
         AddRadioButton.Text = "Add"
+        ToolTip1.SetToolTip(AddRadioButton, "Addition math problem")
         AddRadioButton.UseVisualStyleBackColor = True
         ' 
         ' SubtractRadioButton
@@ -72,6 +75,7 @@ Partial Class MathContest
         SubtractRadioButton.TabIndex = 5
         SubtractRadioButton.TabStop = True
         SubtractRadioButton.Text = "Subtract"
+        ToolTip1.SetToolTip(SubtractRadioButton, "Subtraction math problem type")
         SubtractRadioButton.UseVisualStyleBackColor = True
         ' 
         ' MultiplyRadioButton
@@ -83,6 +87,7 @@ Partial Class MathContest
         MultiplyRadioButton.TabIndex = 6
         MultiplyRadioButton.TabStop = True
         MultiplyRadioButton.Text = "Multiply"
+        ToolTip1.SetToolTip(MultiplyRadioButton, "Multiplication math problem type")
         MultiplyRadioButton.UseVisualStyleBackColor = True
         ' 
         ' DivideRadioButton
@@ -94,6 +99,7 @@ Partial Class MathContest
         DivideRadioButton.TabIndex = 7
         DivideRadioButton.TabStop = True
         DivideRadioButton.Text = "Divide"
+        ToolTip1.SetToolTip(DivideRadioButton, "Division math problem type")
         DivideRadioButton.UseVisualStyleBackColor = True
         ' 
         ' NameLabel
@@ -156,7 +162,8 @@ Partial Class MathContest
         SubmitButton.Name = "SubmitButton"
         SubmitButton.Size = New Size(112, 34)
         SubmitButton.TabIndex = 9
-        SubmitButton.Text = "Submit"
+        SubmitButton.Text = "&Submit"
+        ToolTip1.SetToolTip(SubmitButton, "Submits the answer from the student")
         SubmitButton.UseVisualStyleBackColor = True
         ' 
         ' ClearButton
@@ -165,7 +172,8 @@ Partial Class MathContest
         ClearButton.Name = "ClearButton"
         ClearButton.Size = New Size(112, 34)
         ClearButton.TabIndex = 10
-        ClearButton.Text = "Clear"
+        ClearButton.Text = "&Clear"
+        ToolTip1.SetToolTip(ClearButton, "Clears all the information on the screen")
         ClearButton.UseVisualStyleBackColor = True
         ' 
         ' SummaryButton
@@ -174,40 +182,47 @@ Partial Class MathContest
         SummaryButton.Name = "SummaryButton"
         SummaryButton.Size = New Size(112, 34)
         SummaryButton.TabIndex = 11
-        SummaryButton.Text = "Summary"
+        SummaryButton.Text = "S&ummary"
+        ToolTip1.SetToolTip(SummaryButton, "Gives a summary of what the ")
         SummaryButton.UseVisualStyleBackColor = True
         ' 
         ' ExitButton
         ' 
-        ExitButton.Location = New Point(31, 284)
+        ExitButton.Location = New Point(24, 281)
         ExitButton.Name = "ExitButton"
         ExitButton.Size = New Size(112, 34)
         ExitButton.TabIndex = 12
-        ExitButton.Text = "Exit"
+        ExitButton.Text = "&Exit"
+        ToolTip1.SetToolTip(ExitButton, "Exits the program")
         ExitButton.UseVisualStyleBackColor = True
         ' 
         ' NameTextBox
         ' 
         NameTextBox.Location = New Point(0, 87)
+        NameTextBox.MaxLength = 50
         NameTextBox.Name = "NameTextBox"
         NameTextBox.Size = New Size(150, 31)
         NameTextBox.TabIndex = 1
+        ToolTip1.SetToolTip(NameTextBox, "Name of the student")
         ' 
         ' AgeTextBox
         ' 
         AgeTextBox.Location = New Point(187, 87)
+        AgeTextBox.MaxLength = 2
         AgeTextBox.Name = "AgeTextBox"
         AgeTextBox.Size = New Size(150, 31)
         AgeTextBox.TabIndex = 2
+        ToolTip1.SetToolTip(AgeTextBox, "Age of the student (7-11 Years of age)")
         ' 
         ' GradeTextBox
         ' 
         GradeTextBox.Location = New Point(366, 87)
-        GradeTextBox.MaxLength = 2
+        GradeTextBox.MaxLength = 1
         GradeTextBox.MinimumSize = New Size(7, 11)
         GradeTextBox.Name = "GradeTextBox"
         GradeTextBox.Size = New Size(150, 31)
         GradeTextBox.TabIndex = 3
+        ToolTip1.SetToolTip(GradeTextBox, "Grade year of the student (1-4)")
         ' 
         ' FirstNumberTextBox
         ' 
@@ -216,6 +231,7 @@ Partial Class MathContest
         FirstNumberTextBox.ReadOnly = True
         FirstNumberTextBox.Size = New Size(150, 31)
         FirstNumberTextBox.TabIndex = 20
+        ToolTip1.SetToolTip(FirstNumberTextBox, "First Number of the math problem")
         ' 
         ' SecondNumberTextBox
         ' 
@@ -224,13 +240,16 @@ Partial Class MathContest
         SecondNumberTextBox.ReadOnly = True
         SecondNumberTextBox.Size = New Size(150, 31)
         SecondNumberTextBox.TabIndex = 21
+        ToolTip1.SetToolTip(SecondNumberTextBox, "Second Number of the math problem")
         ' 
         ' StudentAnswerTextBox
         ' 
         StudentAnswerTextBox.Location = New Point(6, 208)
+        StudentAnswerTextBox.MaxLength = 3
         StudentAnswerTextBox.Name = "StudentAnswerTextBox"
         StudentAnswerTextBox.Size = New Size(150, 31)
         StudentAnswerTextBox.TabIndex = 8
+        ToolTip1.SetToolTip(StudentAnswerTextBox, "Student enters their answer here")
         ' 
         ' CurrentMathProblemGroupBox
         ' 
@@ -332,5 +351,6 @@ Partial Class MathContest
     Friend WithEvents StudentInformationGroupBox As GroupBox
     Friend WithEvents ButtonClusterGroupBox As GroupBox
     Friend WithEvents MathProblemTypeGroupBox As GroupBox
+    Friend WithEvents ToolTip1 As ToolTip
 
 End Class

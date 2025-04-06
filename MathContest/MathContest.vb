@@ -95,6 +95,7 @@ Public Class MathContest
         NameTextBox.SelectAll()
         Me.AcceptButton = SubmitButton
         Me.CancelButton = ExitButton
+        AddRadioButton.Checked = True
     End Sub
 
     'This stuff clears-----------------------------------------------
@@ -109,9 +110,8 @@ Public Class MathContest
             GenerateAndShowNumbers()
 
             If submitCountToFive = 5 Then
-                Dim resultMessage As String = "You've completed 5 questions!" & vbCrLf &
-                "Correct Answers: " & correctAnswer & vbCrLf &
-                "Incorrect Answers: " & incorrectAnswer
+                Dim resultMessage As String = $"{NameTextBox.Text} got {correctAnswer} correct out of 5"
+
                 MsgBox(resultMessage, MsgBoxStyle.Information, "Results")
 
                 ' Optionally, reset counters if you want the next 5 to start over
@@ -131,6 +131,7 @@ Public Class MathContest
         SecondNumberTextBox.Clear()
         AgeTextBox.Clear()
         GradeTextBox.Clear()
+        AddRadioButton.Checked = True
         correctAnswer = 0
         incorrectAnswer = 0
     End Sub
@@ -329,7 +330,8 @@ Public Class MathContest
         ElseIf age < 7 Or age > 11 Then
             valid = False
             AgeTextBox.Focus()
-            message &= "Please enter valid age between 7 through 11"
+            message &= "Please enter valid age between 7 through 11. _
+                    otherwise participant is ineligible to participate."
 
         End If
 
@@ -340,7 +342,8 @@ Public Class MathContest
         ElseIf grade < 1 Or grade > 4 Then
             valid = False
             GradeTextBox.Focus()
-            message &= "Please enter a grade number between 1 through 4. Otherwise student is ineligible."
+            message &= "Please enter a grade number between 1 through 4. _
+                    Otherwise student is ineligible."
         End If
 
         If Not valid Then
