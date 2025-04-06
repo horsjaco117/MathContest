@@ -49,13 +49,19 @@ Public Class MathContest
 
         Dim allValid As Boolean = nameValid And ageValid And gradeValid
 
-        SubmitButton.Enabled = allValid
+        'SubmitButton.Enabled = allValid
         SummaryButton.Enabled = allValid
         AddRadioButton.Enabled = allValid
         SubtractRadioButton.Enabled = allValid
         MultiplyRadioButton.Enabled = allValid
         DivideRadioButton.Enabled = allValid
 
+    End Sub
+
+    Private Sub SubmitAcivation()
+        Dim answerWritten As Boolean = Integer.TryParse(StudentAnswerTextBox.Text, Nothing)
+        Dim valid As Boolean = answerWritten
+        SubmitButton.Enabled = valid
     End Sub
 
     Private Sub NameTextBox_TextChanged(sender As Object, e As EventArgs) Handles NameTextBox.TextChanged
@@ -72,6 +78,7 @@ Public Class MathContest
 
     Private Sub StudentAnswerTextBox_TextChanged(sender As Object, e As EventArgs) Handles StudentAnswerTextBox.TextChanged
         ValidateInputs()
+        SubmitAcivation()
     End Sub
 
 
@@ -85,6 +92,7 @@ Public Class MathContest
     'This stuff clears-----------------------------------------------
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+        SubmitAcivation()
         If ValidInputs() Then
             WasAnswerCorrect()
             StudentAnswerTextBox.Clear()
@@ -121,9 +129,36 @@ Public Class MathContest
         End If
     End Sub
 
+    Private Sub SubtractRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles SubtractRadioButton.CheckedChanged
+        If SubtractRadioButton.Checked Then
+            GenerateAndShowNumbers()
+        End If
+    End Sub
+
+    Private Sub MultiplyRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles MultiplyRadioButton.CheckedChanged
+        If MultiplyRadioButton.Checked Then
+            GenerateAndShowNumbers()
+        End If
+    End Sub
+
+    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.CheckedChanged
+        If DivideRadioButton.Checked Then
+            GenerateAndShowNumbers()
+        End If
+    End Sub
+
     ' Add this helper method:
     Private Sub GenerateAndShowNumbers()
         firstNumber = RandomNumberBetween(1, 100)
+
+        If DivideRadioButton.Checked Then
+            secondNumber = SecondRandomNumberBetween(1, 100)
+            Do While secondNumber = 0 'This prevents the crashing of the program DO NOT REMOVE
+                secondNumber = SecondRandomNumberBetween(1, 100)
+            Loop
+        Else
+            secondNumber = SecondRandomNumberBetween(1, 100)
+        End If
         secondNumber = SecondRandomNumberBetween(1, 100)
         FirstNumberTextBox.Text = firstNumber.ToString()
         SecondNumberTextBox.Text = secondNumber.ToString()
@@ -138,13 +173,43 @@ Public Class MathContest
 
     'Functions past this point---------------------------------------
 
-    'Function in charge of adding
-    Function AddingofNumbers() As Integer
+    'Function in charge of the math
+    Function AddingOfNumbers() As Integer
         Dim firstNumber = RandomNumberBetween(1, 100)
         Dim secondNumber = SecondRandomNumberBetween(1, 100)
         Dim answer As Integer
 
         answer = firstNumber + secondNumber
+
+        Return answer
+    End Function
+
+    Function SubtractingOfNumbers() As Integer
+        Dim firstNumber = RandomNumberBetween(1, 100)
+        Dim secondNumber = SecondRandomNumberBetween(1, 100)
+        Dim answer As Integer
+
+        answer = firstNumber - secondNumber
+
+        Return answer
+    End Function
+
+    Function MultiplicationOfNumbers() As Integer
+        Dim firstNumber = RandomNumberBetween(1, 100)
+        Dim secondNumber = SecondRandomNumberBetween(1, 100)
+        Dim answer As Integer
+
+        answer = firstNumber * secondNumber
+
+        Return answer
+    End Function
+
+    Function DivisionOfNumbers() As Integer
+        Dim firstNumber = RandomNumberBetween(1, 100)
+        Dim secondNumber = SecondRandomNumberBetween(1, 100)
+        Dim answer As Integer
+
+        answer = firstNumber \ secondNumber
 
         Return answer
     End Function
