@@ -58,7 +58,7 @@ Partial Class MathContest
         AddRadioButton.Location = New Point(34, 67)
         AddRadioButton.Name = "AddRadioButton"
         AddRadioButton.Size = New Size(71, 29)
-        AddRadioButton.TabIndex = 0
+        AddRadioButton.TabIndex = 4
         AddRadioButton.TabStop = True
         AddRadioButton.Text = "Add"
         AddRadioButton.UseVisualStyleBackColor = True
@@ -69,7 +69,7 @@ Partial Class MathContest
         SubtractRadioButton.Location = New Point(34, 118)
         SubtractRadioButton.Name = "SubtractRadioButton"
         SubtractRadioButton.Size = New Size(103, 29)
-        SubtractRadioButton.TabIndex = 1
+        SubtractRadioButton.TabIndex = 5
         SubtractRadioButton.TabStop = True
         SubtractRadioButton.Text = "Subtract"
         SubtractRadioButton.UseVisualStyleBackColor = True
@@ -80,7 +80,7 @@ Partial Class MathContest
         MultiplyRadioButton.Location = New Point(34, 171)
         MultiplyRadioButton.Name = "MultiplyRadioButton"
         MultiplyRadioButton.Size = New Size(101, 29)
-        MultiplyRadioButton.TabIndex = 2
+        MultiplyRadioButton.TabIndex = 6
         MultiplyRadioButton.TabStop = True
         MultiplyRadioButton.Text = "Multiply"
         MultiplyRadioButton.UseVisualStyleBackColor = True
@@ -91,7 +91,7 @@ Partial Class MathContest
         DivideRadioButton.Location = New Point(34, 231)
         DivideRadioButton.Name = "DivideRadioButton"
         DivideRadioButton.Size = New Size(87, 29)
-        DivideRadioButton.TabIndex = 3
+        DivideRadioButton.TabIndex = 7
         DivideRadioButton.TabStop = True
         DivideRadioButton.Text = "Divide"
         DivideRadioButton.UseVisualStyleBackColor = True
@@ -155,7 +155,7 @@ Partial Class MathContest
         SubmitButton.Location = New Point(24, 53)
         SubmitButton.Name = "SubmitButton"
         SubmitButton.Size = New Size(112, 34)
-        SubmitButton.TabIndex = 12
+        SubmitButton.TabIndex = 9
         SubmitButton.Text = "Submit"
         SubmitButton.UseVisualStyleBackColor = True
         ' 
@@ -164,7 +164,7 @@ Partial Class MathContest
         ClearButton.Location = New Point(24, 137)
         ClearButton.Name = "ClearButton"
         ClearButton.Size = New Size(112, 34)
-        ClearButton.TabIndex = 13
+        ClearButton.TabIndex = 10
         ClearButton.Text = "Clear"
         ClearButton.UseVisualStyleBackColor = True
         ' 
@@ -173,7 +173,7 @@ Partial Class MathContest
         SummaryButton.Location = New Point(24, 220)
         SummaryButton.Name = "SummaryButton"
         SummaryButton.Size = New Size(112, 34)
-        SummaryButton.TabIndex = 14
+        SummaryButton.TabIndex = 11
         SummaryButton.Text = "Summary"
         SummaryButton.UseVisualStyleBackColor = True
         ' 
@@ -182,7 +182,7 @@ Partial Class MathContest
         ExitButton.Location = New Point(31, 284)
         ExitButton.Name = "ExitButton"
         ExitButton.Size = New Size(112, 34)
-        ExitButton.TabIndex = 15
+        ExitButton.TabIndex = 12
         ExitButton.Text = "Exit"
         ExitButton.UseVisualStyleBackColor = True
         ' 
@@ -191,14 +191,14 @@ Partial Class MathContest
         NameTextBox.Location = New Point(0, 87)
         NameTextBox.Name = "NameTextBox"
         NameTextBox.Size = New Size(150, 31)
-        NameTextBox.TabIndex = 17
+        NameTextBox.TabIndex = 1
         ' 
         ' AgeTextBox
         ' 
         AgeTextBox.Location = New Point(187, 87)
         AgeTextBox.Name = "AgeTextBox"
         AgeTextBox.Size = New Size(150, 31)
-        AgeTextBox.TabIndex = 18
+        AgeTextBox.TabIndex = 2
         ' 
         ' GradeTextBox
         ' 
@@ -207,7 +207,7 @@ Partial Class MathContest
         GradeTextBox.MinimumSize = New Size(7, 11)
         GradeTextBox.Name = "GradeTextBox"
         GradeTextBox.Size = New Size(150, 31)
-        GradeTextBox.TabIndex = 19
+        GradeTextBox.TabIndex = 3
         ' 
         ' FirstNumberTextBox
         ' 
@@ -230,7 +230,7 @@ Partial Class MathContest
         StudentAnswerTextBox.Location = New Point(6, 208)
         StudentAnswerTextBox.Name = "StudentAnswerTextBox"
         StudentAnswerTextBox.Size = New Size(150, 31)
-        StudentAnswerTextBox.TabIndex = 22
+        StudentAnswerTextBox.TabIndex = 8
         ' 
         ' CurrentMathProblemGroupBox
         ' 

@@ -21,6 +21,8 @@ Public Class MathContest
 
     Dim firstNumber As Integer
     Dim secondNumber As Integer
+    Dim correctAnswer As Integer = 0
+    Dim incorrectAnswer As Integer = 0
 
     Sub SetDefaults()
 
@@ -111,6 +113,8 @@ Public Class MathContest
         SecondNumberTextBox.Clear()
         AgeTextBox.Clear()
         GradeTextBox.Clear()
+        correctAnswer = 0
+        incorrectAnswer = 0
     End Sub
     'The Math Stuff-----------------------------------------------------
     'Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
@@ -220,17 +224,6 @@ Public Class MathContest
 
     'Function in charge of verifying answer
     Function WasAnswerCorrect() As Boolean
-        'Dim correctAnswer As Boolean
-        ''Dim incorrect As Boolean
-        'Dim computedNumber = AddingofNumbers()
-        'Dim userNumber As Integer
-
-        'If computedNumber = userNumber Then
-        '    correctAnswer = True
-
-        'End If
-
-        'Return correctAnswer
 
         Dim userNumber As Integer
 
@@ -263,7 +256,17 @@ Public Class MathContest
             MsgBox("Please enter a valid number.")
         End If
 
+        If userNumber = correctAnswer Then
+            correctAnswer += 1
+            AffirmCorrectAnswer()
+            Return True
+        Else
+            incorrectAnswer += 1
+        End If
+
         Return False
+
+
     End Function
 
     Function RandomNumberBetween(max As Integer, min As Integer) As Integer
@@ -320,7 +323,7 @@ Public Class MathContest
 
         End If
 
-        If GradeTextBox.Text = "" Then
+        If Not Integer.TryParse(GradeTextBox.Text, grade) Then
             valid = False
             NameTextBox.Focus()
             message &= "Grade is required."
@@ -338,5 +341,10 @@ Public Class MathContest
 
     End Function
 
-
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        Dim message As String = "Recorded answers:" & vbCrLf &
+            "Correct:" & vbCrLf &
+            "Incorrect:"
+        MsgBox(message, MsgBoxStyle.Information, "Quiz Summary")
+    End Sub
 End Class
