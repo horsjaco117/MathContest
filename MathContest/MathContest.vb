@@ -23,6 +23,8 @@ Public Class MathContest
     Dim secondNumber As Integer
     Dim correctAnswer As Integer
     Dim incorrectAnswer As Integer
+    Dim submitCountToFive As Integer = 0
+
 
     Sub SetDefaults()
 
@@ -99,13 +101,29 @@ Public Class MathContest
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         SubmitAcivation()
+
         If ValidInputs() Then
+            submitCountToFive += 1 ' Increase counter on every valid submission
             WasAnswerCorrect()
             StudentAnswerTextBox.Clear()
             GenerateAndShowNumbers()
+
+            If submitCountToFive = 5 Then
+                Dim resultMessage As String = "You've completed 5 questions!" & vbCrLf &
+                "Correct Answers: " & correctAnswer & vbCrLf &
+                "Incorrect Answers: " & incorrectAnswer
+                MsgBox(resultMessage, MsgBoxStyle.Information, "Results")
+
+                ' Optionally, reset counters if you want the next 5 to start over
+                submitCountToFive = 0
+                correctAnswer = 0
+                incorrectAnswer = 0
+            End If
         End If
+
         StudentAnswerTextBox.Clear()
     End Sub
+
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         NameTextBox.Clear()
