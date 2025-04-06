@@ -21,8 +21,8 @@ Public Class MathContest
 
     Dim firstNumber As Integer
     Dim secondNumber As Integer
-    Dim correctAnswer As Integer = 0
-    Dim incorrectAnswer As Integer = 0
+    Dim correctAnswer As Integer
+    Dim incorrectAnswer As Integer
 
     Sub SetDefaults()
 
@@ -224,50 +224,42 @@ Public Class MathContest
 
     'Function in charge of verifying answer
     Function WasAnswerCorrect() As Boolean
-
         Dim userNumber As Integer
 
         If Integer.TryParse(StudentAnswerTextBox.Text, userNumber) Then
-            Dim correctAnswer As Integer
+            Dim actualAnswer As Integer
 
             If AddRadioButton.Checked Then
-                correctAnswer = firstNumber + secondNumber
+                actualAnswer = firstNumber + secondNumber
             ElseIf SubtractRadioButton.Checked Then
-                correctAnswer = firstNumber - secondNumber
+                actualAnswer = firstNumber - secondNumber
             ElseIf MultiplyRadioButton.Checked Then
-                correctAnswer = firstNumber * secondNumber
+                actualAnswer = firstNumber * secondNumber
             ElseIf DivideRadioButton.Checked Then
                 If secondNumber <> 0 Then
-                    correctAnswer = firstNumber \ secondNumber ' Integer division
+                    actualAnswer = firstNumber \ secondNumber
                 Else
                     Return False
                 End If
             Else
-                Return False ' No operation selected
+                Return False
             End If
 
-            If userNumber = correctAnswer Then
+            If userNumber = actualAnswer Then
+                correctAnswer += 1
                 AffirmCorrectAnswer()
                 Return True
             Else
-                MsgBox("Oops! That's not correct.The correct answer was " & correctAnswer)
+                incorrectAnswer += 1
+                MsgBox("Oops! That's not correct. The correct answer was " & actualAnswer)
+                Return False
             End If
         Else
             MsgBox("Please enter a valid number.")
+            Return False
         End If
-
-        If userNumber = correctAnswer Then
-            correctAnswer += 1
-            AffirmCorrectAnswer()
-            Return True
-        Else
-            incorrectAnswer += 1
-        End If
-
-        Return False
-
-
     End Function
+
 
     Function RandomNumberBetween(max As Integer, min As Integer) As Integer
         Dim temp As Single 'The single type helps work with the randomize stuff
@@ -343,8 +335,8 @@ Public Class MathContest
 
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         Dim message As String = "Recorded answers:" & vbCrLf &
-            "Correct:" & vbCrLf &
-            "Incorrect:"
+            "Correct:" & correctAnswer & vbCrLf &
+            "Incorrect:" & incorrectAnswer
         MsgBox(message, MsgBoxStyle.Information, "Quiz Summary")
     End Sub
 End Class
