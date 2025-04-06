@@ -203,6 +203,8 @@ Partial Class MathContest
         ' GradeTextBox
         ' 
         GradeTextBox.Location = New Point(366, 87)
+        GradeTextBox.MaxLength = 2
+        GradeTextBox.MinimumSize = New Size(7, 11)
         GradeTextBox.Name = "GradeTextBox"
         GradeTextBox.Size = New Size(150, 31)
         GradeTextBox.TabIndex = 19

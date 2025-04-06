@@ -279,7 +279,7 @@ Public Class MathContest
     Function ValidInputs() As Boolean
         Dim valid As Boolean = True
         Dim message As String
-
+        Dim age As Integer
         If NameTextBox.Text = "" Then
             valid = False
             NameTextBox.Focus()
@@ -304,10 +304,15 @@ Public Class MathContest
             message &= "Answer is required."
         End If
 
-        If AgeTextBox.Text = "" Then
+        If Not Integer.TryParse(AgeTextBox.Text, age) Then
             valid = False
             NameTextBox.Focus()
             message &= "Age is required."
+        ElseIf age < 7 Or age > 11 Then
+            valid = False
+            AgeTextBox.Focus()
+            message &= "Please enter valid age between 7 through 11"
+
         End If
 
         If GradeTextBox.Text = "" Then
