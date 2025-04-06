@@ -92,9 +92,20 @@ Public Class MathContest
 
     End Sub
 
+    'This stuff clears-----------------------------------------------
+
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         StudentAnswerTextBox.Clear()
     End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        NameTextBox.Clear()
+        FirstNumberTextBox.Clear()
+        SecondNumberTextBox.Clear()
+        AgeTextBox.Clear()
+        GradeTextBox.Clear()
+    End Sub
+
 
 
 
@@ -162,6 +173,5 @@ Public Class MathContest
         Return valid
 
     End Function
-
 
 End Class
