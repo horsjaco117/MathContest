@@ -16,6 +16,10 @@ Imports System.CodeDom.Compiler
 '[ ] Create code that does math stuff for everything
 '[ ] Fix the problem of not being able to select button option
 Public Class MathContest
+
+    Dim firstNumber As Integer
+    Dim secondNumber As Integer
+
     Sub SetDefaults()
 
         NameTextBox.Text = ""
@@ -41,9 +45,9 @@ Public Class MathContest
         Dim nameValid As Boolean = Not String.IsNullOrWhiteSpace(NameTextBox.Text)
         Dim ageValid As Boolean = Integer.TryParse(AgeTextBox.Text, Nothing)
         Dim gradeValid As Boolean = Integer.TryParse(GradeTextBox.Text, Nothing)
-        Dim answerValid As Boolean = Integer.TryParse(StudentAnswerTextBox.Text, Nothing)
+        'Dim answerValid As Boolean = Integer.TryParse(StudentAnswerTextBox.Text, Nothing)
 
-        Dim allValid As Boolean = nameValid And ageValid And gradeValid And answerValid
+        Dim allValid As Boolean = nameValid And ageValid And gradeValid
 
         SubmitButton.Enabled = allValid
         SummaryButton.Enabled = allValid
@@ -70,17 +74,7 @@ Public Class MathContest
         ValidateInputs()
     End Sub
 
-    Private Sub FirstNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load, SubmitButton.Click
-        Dim result As Integer = randomNumberBetween(1, 100)
-        FirstNumberTextBox.Text = result.ToString()
 
-    End Sub
-
-    Private Sub SecondNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load, SubmitButton.Click
-        Dim result As Integer = secondRandomNumberBetween(1, 100)
-        SecondNumberTextBox.Text = result.ToString()
-
-    End Sub
 
     'Handling of the focus------------------------------------------
     Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -91,7 +85,11 @@ Public Class MathContest
     'This stuff clears-----------------------------------------------
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        AffirmCorrectAnswer()
+        If ValidInputs() Then
+            WasAnswerCorrect()
+            StudentAnswerTextBox.Clear()
+            GenerateAndShowNumbers()
+        End If
         StudentAnswerTextBox.Clear()
     End Sub
 
@@ -103,17 +101,34 @@ Public Class MathContest
         GradeTextBox.Clear()
     End Sub
     'The Math Stuff-----------------------------------------------------
-    Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
-        AddingofNumbers()
+    'Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
+    '    AddingofNumbers()
 
-    End Sub
+    'End Sub
 
     'For Correct or Wrong Answers--------------------------------------
     Sub AffirmCorrectAnswer()
+        Dim result As Integer
 
         MsgBox("Hooray")
 
     End Sub
+
+    'Number Generation------------------------------------------------
+    Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
+        If AddRadioButton.Checked Then
+            GenerateAndShowNumbers()
+        End If
+    End Sub
+
+    ' Add this helper method:
+    Private Sub GenerateAndShowNumbers()
+        firstNumber = RandomNumberBetween(1, 100)
+        secondNumber = SecondRandomNumberBetween(1, 100)
+        FirstNumberTextBox.Text = firstNumber.ToString()
+        SecondNumberTextBox.Text = secondNumber.ToString()
+    End Sub
+
 
     'Closing of the program-----------------------------------------------
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
@@ -136,17 +151,50 @@ Public Class MathContest
 
     'Function in charge of verifying answer
     Function WasAnswerCorrect() As Boolean
-        Dim correctAnswer As Boolean
-        'Dim incorrect As Boolean
-        Dim computedNumber = AddingofNumbers()
+        'Dim correctAnswer As Boolean
+        ''Dim incorrect As Boolean
+        'Dim computedNumber = AddingofNumbers()
+        'Dim userNumber As Integer
+
+        'If computedNumber = userNumber Then
+        '    correctAnswer = True
+
+        'End If
+
+        'Return correctAnswer
+
         Dim userNumber As Integer
 
-        If computedNumber = userNumber Then
-            correctAnswer = True
+        If Integer.TryParse(StudentAnswerTextBox.Text, userNumber) Then
+            Dim correctAnswer As Integer
 
+            If AddRadioButton.Checked Then
+                correctAnswer = firstNumber + secondNumber
+            ElseIf SubtractRadioButton.Checked Then
+                correctAnswer = firstNumber - secondNumber
+            ElseIf MultiplyRadioButton.Checked Then
+                correctAnswer = firstNumber * secondNumber
+            ElseIf DivideRadioButton.Checked Then
+                If secondNumber <> 0 Then
+                    correctAnswer = firstNumber \ secondNumber ' Integer division
+                Else
+                    Return False
+                End If
+            Else
+                Return False ' No operation selected
+            End If
+
+            If userNumber = correctAnswer Then
+                AffirmCorrectAnswer()
+                Return True
+            Else
+                MsgBox("Oops! That's not correct.")
+            End If
+        Else
+            MsgBox("Please enter a valid number.")
         End If
 
-        Return correctAnswer
+        Return False
     End Function
 
     Function RandomNumberBetween(max As Integer, min As Integer) As Integer
