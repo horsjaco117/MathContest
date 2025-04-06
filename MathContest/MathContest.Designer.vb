@@ -211,6 +211,7 @@ Partial Class MathContest
         ' 
         FirstNumberTextBox.Location = New Point(6, 71)
         FirstNumberTextBox.Name = "FirstNumberTextBox"
+        FirstNumberTextBox.ReadOnly = True
         FirstNumberTextBox.Size = New Size(150, 31)
         FirstNumberTextBox.TabIndex = 20
         ' 
@@ -218,6 +219,7 @@ Partial Class MathContest
         ' 
         SecondNumberTextBox.Location = New Point(6, 136)
         SecondNumberTextBox.Name = "SecondNumberTextBox"
+        SecondNumberTextBox.ReadOnly = True
         SecondNumberTextBox.Size = New Size(150, 31)
         SecondNumberTextBox.TabIndex = 21
         ' 
@@ -293,7 +295,7 @@ Partial Class MathContest
         Controls.Add(StudentInformationGroupBox)
         Controls.Add(CurrentMathProblemGroupBox)
         Name = "MathContest"
-        Text = "Form1"
+        Text = "Math Contest"
         CurrentMathProblemGroupBox.ResumeLayout(False)
         CurrentMathProblemGroupBox.PerformLayout()
         StudentInformationGroupBox.ResumeLayout(False)

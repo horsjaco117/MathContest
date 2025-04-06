@@ -1,15 +1,18 @@
-﻿'Jacob Horsley
+﻿Option Explicit On
+Option Strict On
+'Jacob Horsley
 'RCET0265
 'Spring 2025
 'Math Contest
 'URL:
 
-Option Explicit On
-Option Strict On
+Imports System.CodeDom.Compiler
+
+
 
 
 '[ ] have the focus change to the field that isn't completed
-'[ ] Gray out stuff with information ingresado
+'[x] Gray out stuff with information ingresado
 '[ ] 
 Public Class MathContest
     Sub SetDefaults()
@@ -71,7 +74,35 @@ Public Class MathContest
         Me.Close()
     End Sub
 
+    Private Sub FirstNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim result As Integer = randomNumberBetween(1, 100)
+        FirstNumberTextBox.Text = result.ToString()
+
+    End Sub
+
+    Private Sub SecondNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim result As Integer = secondRandomNumberBetween(1, 100)
+        SecondNumberTextBox.Text = result.ToString()
+
+    End Sub
+
+
+
     'Functions past this point---------------------------------------
+
+    Function randomNumberBetween(max As Integer, min As Integer) As Integer
+        Dim temp As Single 'The single type helps work with the randomize stuff
+        Randomize()
+        temp = Rnd()
+        temp = temp * (max - min + 1) + min
+        Return CInt(Math.Floor(temp)) 'min isn't included
+    End Function
+
+    Function secondRandomNumberBetween(min As Integer, max As Integer) As Integer
+        Dim rand As New Random()
+        Return rand.Next(min, max + 1) ' Includes max
+    End Function
+
 
     Function ValidInputs() As Boolean
         Dim valid As Boolean = True
@@ -120,5 +151,6 @@ Public Class MathContest
         Return valid
 
     End Function
+
 
 End Class
