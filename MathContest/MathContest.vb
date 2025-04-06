@@ -89,6 +89,8 @@ Public Class MathContest
     Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         NameTextBox.Focus()
         NameTextBox.SelectAll()
+        Me.AcceptButton = SubmitButton
+        Me.CancelButton = ExitButton
     End Sub
 
     'This stuff clears-----------------------------------------------
@@ -322,10 +324,10 @@ Public Class MathContest
             valid = False
             NameTextBox.Focus()
             message &= "Grade is required."
-        ElseIf grade < 1 Or age > 4 Then
+        ElseIf grade < 1 Or grade > 4 Then
             valid = False
             GradeTextBox.Focus()
-            message &= "Please enter a grade number between 1 through 4"
+            message &= "Please enter a grade number between 1 through 4. Otherwise student is ineligible."
         End If
 
         If Not valid Then
@@ -335,5 +337,6 @@ Public Class MathContest
         Return valid
 
     End Function
+
 
 End Class
