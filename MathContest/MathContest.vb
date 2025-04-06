@@ -13,7 +13,8 @@ Imports System.CodeDom.Compiler
 
 '[ ] have the focus change to the field that isn't completed
 '[x] Gray out stuff with information ingresado
-'[ ] 
+'[ ] Create code that does math stuff for everything
+'[ ] Fix the problem of not being able to select button option
 Public Class MathContest
     Sub SetDefaults()
 
@@ -26,6 +27,7 @@ Public Class MathContest
 
     End Sub
 
+    'Everything below this checks to see if everything is put in correctly
     Private Sub DisableUntil_Load(sender As Object, e As EventArgs) Handles Me.Shown
         SubmitButton.Enabled = False
         SummaryButton.Enabled = False
@@ -68,18 +70,6 @@ Public Class MathContest
         ValidateInputs()
     End Sub
 
-
-
-
-    Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        NameTextBox.Focus()
-        NameTextBox.SelectAll()
-    End Sub
-
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
-        Me.Close()
-    End Sub
-
     Private Sub FirstNumberTextBox_Move(sender As Object, e As EventArgs) Handles MyBase.Load, SubmitButton.Click
         Dim result As Integer = randomNumberBetween(1, 100)
         FirstNumberTextBox.Text = result.ToString()
@@ -92,9 +82,16 @@ Public Class MathContest
 
     End Sub
 
+    'Handling of the focus------------------------------------------
+    Private Sub MathContest_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        NameTextBox.Focus()
+        NameTextBox.SelectAll()
+    End Sub
+
     'This stuff clears-----------------------------------------------
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+        AffirmCorrectAnswer()
         StudentAnswerTextBox.Clear()
     End Sub
 
@@ -105,14 +102,54 @@ Public Class MathContest
         AgeTextBox.Clear()
         GradeTextBox.Clear()
     End Sub
+    'The Math Stuff-----------------------------------------------------
+    Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
+        AddingofNumbers()
 
+    End Sub
 
+    'For Correct or Wrong Answers--------------------------------------
+    Sub AffirmCorrectAnswer()
 
+        MsgBox("Hooray")
+
+    End Sub
+
+    'Closing of the program-----------------------------------------------
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
 
 
     'Functions past this point---------------------------------------
 
-    Function randomNumberBetween(max As Integer, min As Integer) As Integer
+    'Function in charge of adding
+    Function AddingofNumbers() As Integer
+        Dim firstNumber = RandomNumberBetween(1, 100)
+        Dim secondNumber = SecondRandomNumberBetween(1, 100)
+        Dim answer As Integer
+
+        answer = firstNumber + secondNumber
+
+        Return answer
+    End Function
+
+    'Function in charge of verifying answer
+    Function WasAnswerCorrect() As Boolean
+        Dim correctAnswer As Boolean
+        'Dim incorrect As Boolean
+        Dim computedNumber = AddingofNumbers()
+        Dim userNumber As Integer
+
+        If computedNumber = userNumber Then
+            correctAnswer = True
+
+        End If
+
+        Return correctAnswer
+    End Function
+
+    Function RandomNumberBetween(max As Integer, min As Integer) As Integer
         Dim temp As Single 'The single type helps work with the randomize stuff
         Randomize()
         temp = Rnd()
@@ -120,7 +157,7 @@ Public Class MathContest
         Return CInt(Math.Floor(temp)) 'min isn't included
     End Function
 
-    Function secondRandomNumberBetween(min As Integer, max As Integer) As Integer
+    Function SecondRandomNumberBetween(min As Integer, max As Integer) As Integer
         Dim rand As New Random()
         Return rand.Next(min, max + 1) ' Includes max
     End Function
